@@ -2,7 +2,7 @@
 
 Base profesional para la web oficial de **CEDIVETS — Centro de Diagnóstico Veterinario del Sur**. Construida con Astro y TypeScript estricto como sitio estático, rápido, accesible y preparado para GitHub Pages.
 
-> Estado: demo editorial. El sitio mantiene `noindex`, no incluye backend y marca como **Información por confirmar** todo dato institucional, técnico o comercial que todavía necesita aprobación.
+> Estado: integración local del catálogo oficial CEDIVETS 2026. El sitio mantiene `noindex` y no incluye backend. Los datos ausentes o ambiguos se identifican sin inventarlos; consulte [pendientes editoriales](docs/pendientes-editoriales.md).
 
 ## Stack
 
@@ -18,7 +18,10 @@ Requisitos: Node.js 24 o una versión compatible con `engines` y npm.
 
 ```bash
 npm install
-npm run dev
+npm run dev -- --background
+npm run astro -- dev status
+npm run astro -- dev logs
+npm run astro -- dev stop
 ```
 
 Astro mostrará la URL local, normalmente `http://localhost:4321/cedivets-web/`.
@@ -63,7 +66,7 @@ No se ha comprado ni configurado el dominio. Cuando CEDIVETS autorice el cambio:
 
 ## Catálogo
 
-`src/data/services.ts` define cada servicio con nombre, área, especie, especificaciones, tipo de muestra, tiempo de entrega y precio. `ServiceCatalog.astro` consume estos datos y ofrece búsqueda y filtros del lado del cliente. Las páginas de detalle se generan desde una ruta dinámica estática.
+`src/data/services.ts` transcribe 43 estudios principales del PDF oficial, con página de origen, área, especie o ámbito, especificaciones, tipo de muestra, tiempo de entrega y precio cuando está indicado. La lesión adicional permanece como condición de histopatología de una lesión. `ServiceCatalog.astro` ofrece búsqueda con o sin tildes y filtros del lado del cliente. Cada estudio genera una ficha estática individual; las cinco rutas anteriores por área siguen disponibles.
 
 ## Estructura
 
@@ -81,10 +84,10 @@ src/
 
 - No hay secretos, formularios activos, analítica, cookies ni almacenamiento de datos.
 - No se afirma autorización de Agrocalidad.
-- Las referencias a servicios coordinados con laboratorios autorizados son solo una estructura editorial.
+- Los servicios orientados a Agrocalidad se presentan por separado como en desarrollo o coordinados con laboratorios autorizados, según el PDF.
 - No se publican profesionales, acreditaciones, certificaciones o infraestructura sin verificación.
-- El identificador gráfico y favicon son placeholders explícitos.
+- El identificador gráfico se recortó del PDF oficial; el favicon existente sigue pendiente de un activo de marca original.
 
 ## Contenido pendiente
 
-Antes del lanzamiento definitivo deben confirmarse: logo, historia, misión, visión, equipo, infraestructura, catálogo técnico y comercial, protocolos de muestras, dirección, horario, teléfono, correo, política de privacidad y responsable del canal de contacto.
+Antes de un lanzamiento definitivo deben confirmarse el archivo original del logo, la historia y la infraestructura, el equipo, el horario de atención, los vacíos y erratas anotados en [pendientes editoriales](docs/pendientes-editoriales.md), la política de privacidad y el responsable del canal de contacto.

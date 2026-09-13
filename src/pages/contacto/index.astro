@@ -1,21 +1,22 @@
 ---
 import PageHero from '../../components/PageHero.astro';
+import { contact } from '../../data/site';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Contacto" description="Canales de contacto de CEDIVETS, pendientes de confirmación para la versión oficial.">
-	<PageHero eyebrow="Contacto" title="Coordinación clara desde el primer mensaje." intro="La estructura está lista para los canales oficiales. Ningún dato de contacto se publica hasta recibir confirmación institucional." marker="07" />
+<BaseLayout title="Contacto" description="Dirección, teléfono y correo impresos en el catálogo CEDIVETS 2026.">
+	<PageHero eyebrow="Contacto" title="Coordine su estudio y el envío de muestras." intro="El catálogo indica dirección, teléfono, correo y redes. Consulte el horario de recepción antes de despachar muestras." marker="07" />
 	<section class="section">
 		<div class="shell contact-grid">
-			<article class="contact-card"><span>01 / Ubicación</span><h2>Provincia de El Oro, Ecuador</h2><p>Ciudad, dirección exacta e indicaciones: <strong>Información por confirmar.</strong></p></article>
-			<article class="contact-card"><span>02 / Atención</span><h2>Horario</h2><p>Días y franjas de recepción: <strong>Información por confirmar.</strong></p></article>
-			<article class="contact-card"><span>03 / Canales</span><h2>Teléfono y correo</h2><p>WhatsApp, teléfono y correo institucional: <strong>Información por confirmar.</strong></p></article>
+			<article class="contact-card"><span>01 / Ubicación</span><h2>Huaquillas, El Oro</h2><p>{contact.address}</p></article>
+			<article class="contact-card"><span>02 / Canales</span><h2>Teléfono y correo</h2><p>Teléfono: <a href={'tel:' + contact.phone}>{contact.phone}</a></p><p>Correo: <a href={'mailto:' + contact.email}>{contact.email}</a></p><p>Facebook: {contact.facebook}<br />Instagram: {contact.instagram}</p></article>
+			<article class="contact-card"><span>03 / Atención</span><h2>Horario</h2><p>Días y franjas de recepción: <strong>Información por confirmar.</strong></p><p>El catálogo recomienda coordinar horarios de recepción y entrega para servicios de mensajería.</p></article>
 		</div>
 	</section>
 	<section class="section section-soft">
 		<div class="shell split-grid">
-			<div class="split-copy"><p class="eyebrow">Futuro formulario</p><h2>Contacto sin exponer datos ni prometer una respuesta automática.</h2></div>
-			<div class="info-card"><h3>Fase posterior</h3><p>La integración de un formulario, WhatsApp o correo transaccional requerirá definir responsable, horario de atención, política de privacidad y destino seguro de los mensajes.</p><span class="placeholder">Sin backend en esta fase</span></div>
+			<div class="split-copy"><p class="eyebrow">Antes del despacho</p><h2>Confirme disponibilidad y recepción.</h2></div>
+			<div class="info-card"><h3>Prepare la solicitud</h3><p>Indique especie, tipo y localización de la muestra, fecha de toma, información clínica y estudios requeridos. Consulte la ficha del estudio para el recipiente y la conservación correspondientes.</p><span class="placeholder">Horario por confirmar</span></div>
 		</div>
 	</section>
 </BaseLayout>
