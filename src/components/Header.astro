@@ -1,5 +1,5 @@
 ---
-import { navigation } from '../data/site';
+import { navigation, secondaryNavigation } from '../data/site';
 import { withBase } from '../lib/urls';
 import Brand from './Brand.astro';
 
@@ -8,7 +8,11 @@ interface Props {
 }
 
 const { pathname } = Astro.props;
-const isActive = (href: string) => pathname.includes(href.replace(/\/$/, ''));
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const localPath = base && pathname.startsWith(base) ? pathname.slice(base.length) || '/' : pathname;
+const currentPath = localPath.endsWith('/') ? localPath : localPath + '/';
+const isActive = (href: string) =>
+	href === '/' ? currentPath === '/' : currentPath === href || currentPath.startsWith(href);
 ---
 
 <header class="site-header">
@@ -21,8 +25,8 @@ const isActive = (href: string) => pathname.includes(href.replace(/\/$/, ''));
 				</a>
 			))}
 		</nav>
-		<details class="mobile-nav">
-			<summary aria-label="Abrir menú de navegación">
+		<details class="mobile-nav" data-mobile-nav>
+			<summary aria-label="Abrir menú de navegación" data-mobile-toggle>
 				<span></span><span></span><span></span>
 			</summary>
 			<nav aria-label="Navegación móvil">
@@ -34,4 +38,18 @@ const isActive = (href: string) => pathname.includes(href.replace(/\/$/, ''));
 			</nav>
 		</details>
 	</div>
+	<nav class="shell secondary-nav" aria-label="Navegación complementaria">
+		{secondaryNavigation.map((item) => (
+			<a href={withBase(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+		))}
+	</nav>
 </header>
+
+<script>
+	document.querySelectorAll<HTMLDetailsElement>('[data-mobile-nav]').forEach((menu) => {
+		const toggle = menu.querySelector<HTMLElement>('[data-mobile-toggle]');
+		menu.addEventListener('toggle', () => {
+			toggle?.setAttribute('aria-label', menu.open ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+		});
+	});
+</script>

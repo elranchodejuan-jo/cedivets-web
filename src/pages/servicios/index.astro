@@ -2,11 +2,22 @@
 import CtaBand from '../../components/CtaBand.astro';
 import PageHero from '../../components/PageHero.astro';
 import ServiceCatalog from '../../components/ServiceCatalog.astro';
+import { developmentServices } from '../../data/site';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Servicios" description="Catálogo demostrativo y filtrable de servicios diagnósticos veterinarios CEDIVETS.">
-	<PageHero eyebrow="Catálogo de servicios" title="Información diagnóstica clara, ordenada y ampliable." intro="Busque por área o especie. Cada ficha está lista para recibir especificaciones técnicas, muestras, tiempos y precios validados." marker="02" />
+<BaseLayout title="Servicios" description="Estudios, requisitos, tiempos y tarifas del catálogo de precios CEDIVETS 2026.">
+	<PageHero eyebrow="Catálogo de precios 2026" title="Estudios diagnósticos y requisitos de muestra." intro="Explore los estudios por área y especie. Los precios y tiempos se muestran solo cuando figuran en el catálogo; confirme disponibilidad actual antes del envío." marker="02" />
 	<div class="shell"><ServiceCatalog /></div>
+	<section class="section section-soft">
+		<div class="shell content-grid">
+			<aside><p class="eyebrow">Alcance distinto</p><h2>En desarrollo o en coordinación</h2><p class="lead">El catálogo describe estos servicios orientados al control sanitario y Agrocalidad como capacidades en desarrollo o coordinadas con laboratorios autorizados. No afirma autorización propia de CEDIVETS.</p></aside>
+			<div class="info-card">
+				<h2>Consulte antes de solicitar</h2>
+				<ul class="plain-list">{developmentServices.map((item) => <li>{item}</li>)}</ul>
+				<p>Disponibilidad actual, costos y requisitos de muestreo: consultar con CEDIVETS.</p>
+			</div>
+		</div>
+	</section>
 	<CtaBand />
 </BaseLayout>

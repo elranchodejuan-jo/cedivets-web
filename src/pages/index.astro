@@ -1,7 +1,6 @@
 ---
 import CtaBand from '../components/CtaBand.astro';
-import ServiceCatalog from '../components/ServiceCatalog.astro';
-import { services } from '../data/services';
+import { areas, services } from '../data/services';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { withBase } from '../lib/urls';
 ---
@@ -12,7 +11,7 @@ import { withBase } from '../lib/urls';
 			<div>
 				<p class="eyebrow">Patología y laboratorio veterinario</p>
 				<h1>Diagnóstico veterinario especializado para decisiones clínicas <span>más seguras.</span></h1>
-				<p class="lead">Una base digital clara para conectar evidencia diagnóstica, criterio profesional y atención veterinaria.</p>
+					<p class="lead">CEDIVETS ofrece diagnóstico veterinario integral, preciso y oportuno para apoyar la práctica clínica con respaldo científico en El Oro y el sur del Ecuador.</p>
 				<div class="hero-actions">
 					<a class="button button-primary" href={withBase('/servicios/')}>Explorar servicios <span aria-hidden="true">→</span></a>
 					<a class="button button-secondary" href={withBase('/envio-de-muestras/')}>Preparar una muestra</a>
@@ -29,7 +28,7 @@ import { withBase } from '../lib/urls';
 					<i class="orbit-dot"></i><i class="orbit-dot"></i><i class="orbit-dot"></i>
 				</div>
 				<div class="panel-footer">
-					<p><strong>Muestra → evidencia</strong>Diagrama conceptual de la fase demo</p>
+						<p><strong>Muestra → evidencia</strong>Diagrama conceptual del proceso diagnóstico</p>
 					<span>CEDIVETS / 2026</span>
 				</div>
 			</div>
@@ -38,26 +37,21 @@ import { withBase } from '../lib/urls';
 
 	<div class="proof-band">
 		<div class="shell">
-			<span>Áreas iniciales</span>
-			<p>Histopatología · Citología · Microbiología · Laboratorio clínico · Patología aviar</p>
+			<span>Catálogo 2026</span>
+			<p>{services.length} estudios · {areas.length} áreas diagnósticas · requisitos de envío documentados</p>
 		</div>
 	</div>
 
 	<section class="section">
 		<div class="shell">
 			<div class="section-heading">
-				<div><p class="eyebrow">Servicios</p><h2>Una arquitectura preparada para crecer con el laboratorio.</h2></div>
-				<p>Cada área dispone de una ficha ampliable con muestra, especificaciones, tiempo de entrega, especie y precio.</p>
+				<div><p class="eyebrow">Explore CEDIVETS</p><h2>Diagnóstico, muestras y apoyo científico.</h2></div>
+				<p>El catálogo reúne estudios de hematología, parasitología, citología, histopatología y microbiología, incluida el área aviar.</p>
 			</div>
 			<div class="area-grid">
-				{services.slice(0, 5).map((service, index) => (
-					<article class="area-card" data-index={String(index + 1).padStart(2, '0')}>
-						<p class="card-kicker">Área diagnóstica</p>
-						<h3>{service.area}</h3>
-						<p>{service.summary}</p>
-						<a class="text-link" href={withBase(`/servicios/${service.slug}/`)}>Conocer el área <span aria-hidden="true">→</span></a>
-					</article>
-				))}
+				<article class="area-card" data-index="01"><p class="card-kicker">Estudios</p><h3>Servicios</h3><p>Revise las pruebas y sus requisitos individuales antes de enviar una muestra.</p><a class="text-link" href={withBase('/servicios/')}>Ver catálogo <span aria-hidden="true">→</span></a></article>
+				<article class="area-card" data-index="02"><p class="card-kicker">Especialidades</p><h3>Áreas</h3><p>Conozca cómo se organizan las seis áreas del catálogo 2026.</p><a class="text-link" href={withBase('/areas/')}>Ver áreas <span aria-hidden="true">→</span></a></article>
+				<article class="area-card" data-index="03"><p class="card-kicker">Preparación</p><h3>Envío de muestras</h3><p>Conservación, identificación y transporte según el tipo de muestra.</p><a class="text-link" href={withBase('/envio-de-muestras/')}>Ver requisitos <span aria-hidden="true">→</span></a></article>
 			</div>
 		</div>
 	</section>
@@ -67,14 +61,14 @@ import { withBase } from '../lib/urls';
 			<div class="split-copy">
 				<p class="eyebrow">Envío de muestras</p>
 				<h2>La calidad del proceso empieza antes del laboratorio.</h2>
-				<p class="lead">El sitio deja preparado un recorrido para orientar la toma, identificación, conservación y coordinación de cada muestra.</p>
-				<a class="text-link" href={withBase('/envio-de-muestras/')}>Ver guía preliminar <span aria-hidden="true">→</span></a>
+					<p class="lead">El catálogo indica cómo conservar, rotular y embalar las muestras. Cada ficha añade las condiciones particulares del estudio.</p>
+					<a class="text-link" href={withBase('/envio-de-muestras/')}>Ver guía de muestras <span aria-hidden="true">→</span></a>
 			</div>
 			<ol class="step-list">
-				<li><div><h3>Confirmar el estudio</h3><p>Validar requisitos y disponibilidad con CEDIVETS.</p></div></li>
-				<li><div><h3>Preparar e identificar</h3><p>Seguir el protocolo específico, aún pendiente de aprobación.</p></div></li>
-				<li><div><h3>Coordinar la entrega</h3><p>Confirmar horario, transporte y recepción antes del envío.</p></div></li>
-				<li><div><h3>Dar seguimiento</h3><p>Conservar el código o referencia acordada para la trazabilidad.</p></div></li>
+					<li><div><h3>Elegir el estudio</h3><p>Revise la muestra y las condiciones específicas de su ficha.</p></div></li>
+					<li><div><h3>Conservar y rotular</h3><p>Use el fijador, recipiente o refrigeración que corresponda y anote los datos del caso.</p></div></li>
+					<li><div><h3>Embalar</h3><p>Utilice envase hermético, bolsa secundaria sellada y caja externa.</p></div></li>
+					<li><div><h3>Coordinar el envío</h3><p>Remita pronto la muestra y consulte el horario de recepción.</p></div></li>
 			</ol>
 		</div>
 	</section>
@@ -83,23 +77,20 @@ import { withBase } from '../lib/urls';
 		<div class="shell fact-panel">
 			<p class="eyebrow eyebrow-light">Alcance institucional</p>
 			<h2>Ciencia veterinaria conectada con la práctica clínica.</h2>
-			<p>La web está organizada para explicar el alcance del laboratorio sin atribuir certificaciones, infraestructura o autorizaciones que todavía no han sido confirmadas.</p>
+			<p>CEDIVETS busca fortalecer la medicina veterinaria con diagnósticos confiables, apoyo a la salud animal, control sanitario y decisiones clínicas eficaces.</p>
 			<div class="fact-grid">
-				<article><h3>Misión y visión</h3><p>Espacio preparado para la versión oficial aprobada por CEDIVETS.</p></article>
-				<article><h3>Equipo</h3><p>Perfiles profesionales pendientes de nombres, cargos y fotografías autorizadas.</p></article>
-				<article><h3>Infraestructura</h3><p>Inventario visual y técnico pendiente de validación institucional.</p></article>
-				<article><h3>Investigación</h3><p>Base para proyectos, publicaciones y apoyo científico verificable.</p></article>
+				<article><h3>Misión</h3><p>Diagnósticos veterinarios de alta calidad, precisos y oportunos, con un servicio ético y personalizado.</p></article>
+				<article><h3>Visión</h3><p>Ser un centro de referencia en el sur del Ecuador y contribuir a la innovación y educación continua.</p></article>
+				<article><h3>Equipo</h3><p>El catálogo menciona un equipo especializado; los perfiles individuales siguen pendientes.</p></article>
+				<article><h3>Investigación</h3><p>El Departamento de Apoyo Científico evalúa proyectos para ofrecer precios especiales.</p></article>
 			</div>
 		</div>
 	</section>
 
 	<section class="section section-tint">
-		<div class="shell">
-			<div class="section-heading">
-				<div><p class="eyebrow">Catálogo</p><h2>Información preparada para buscar y comparar.</h2></div>
-				<p>Los filtros funcionan en el navegador. Los datos comerciales y técnicos permanecen señalados como pendientes hasta su aprobación.</p>
-			</div>
-			<ServiceCatalog />
+		<div class="shell split-grid">
+			<div class="split-copy"><p class="eyebrow">Catálogo de precios 2026</p><h2>Cada estudio tiene sus propias condiciones.</h2></div>
+			<div class="info-card"><p>Consulte especies, tipo de muestra, especificaciones, tiempo y precio por estudio. Algunos plazos o precios figuran como «Consultar» o no están indicados en el documento.</p><a class="text-link" href={withBase('/servicios/')}>Buscar estudios <span aria-hidden="true">→</span></a></div>
 		</div>
 	</section>
 
@@ -107,14 +98,14 @@ import { withBase } from '../lib/urls';
 		<div class="shell split-grid">
 			<div class="split-copy">
 				<p class="eyebrow">Apoyo científico</p>
-				<h2>Un espacio para investigar, documentar y compartir conocimiento.</h2>
+					<h2>Apoyo a proyectos de investigación.</h2>
 			</div>
 			<div class="content-stack">
-				<article class="info-card"><h3>Departamento de Apoyo Científico / Investigación</h3><p>Estructura preparada para líneas de investigación, asesoría, colaboraciones, publicaciones y actividades académicas.</p><span class="placeholder">Información por confirmar</span></article>
-				<article class="info-card"><h3>Agrocalidad</h3><p>Sección reservada para servicios en desarrollo o coordinados con laboratorios autorizados. Esta demo no afirma que CEDIVETS cuente con autorización de Agrocalidad.</p></article>
+				<article class="info-card"><h3>Departamento de Apoyo Científico</h3><p>Presenta tu proyecto y las pruebas requeridas. El equipo evaluará la solicitud para otorgar un descuento; el catálogo no fija un porcentaje.</p><a class="text-link" href={withBase('/investigacion/')}>Ver investigación <span aria-hidden="true">→</span></a></article>
+				<article class="info-card"><h3>Control sanitario oficial</h3><p>Los servicios orientados a Agrocalidad están en desarrollo o se coordinan con laboratorios autorizados. Consulte disponibilidad, costos y muestreo.</p><a class="text-link" href={withBase('/servicios/')}>Ver alcance <span aria-hidden="true">→</span></a></article>
 			</div>
 		</div>
 	</section>
 
-	<CtaBand title="Hablemos cuando la información oficial esté lista." text="La sección de contacto está preparada para incorporar los canales, horarios y ubicación aprobados por CEDIVETS." label="Ver contacto" href="/contacto/" />
+	<CtaBand title="Coordine su estudio con CEDIVETS." text="Consulte disponibilidad y recepción antes de enviar una muestra." label="Ver contacto" href="/contacto/" />
 </BaseLayout>

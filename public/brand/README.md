@@ -1,13 +1,11 @@
 # Identidad visual
 
-Esta carpeta está reservada para activos oficiales autorizados de CEDIVETS.
+Esta carpeta contiene un recorte raster del logo impreso en el catálogo oficial CEDIVETS 2026. Se revisó visualmente el logo en la página 4 antes de incorporarlo. El PDF no proporciona un archivo de marca separado.
 
-El sitio usa actualmente un identificador tipográfico y un favicon provisional. Antes de publicar la versión definitiva:
+Antes de publicar una versión definitiva:
 
-1. incorporar el logo oficial en SVG o PNG de alta resolución;
-2. documentar quién autorizó el uso del archivo;
-3. reemplazar el componente `src/components/Brand.astro` y `public/favicon.svg`;
-4. añadir textos alternativos adecuados;
-5. verificar contraste, legibilidad y tamaños mínimos.
+1. solicitar a CEDIVETS el logo original en SVG o PNG de alta resolución y confirmar sus reglas de uso;
+2. sustituir el recorte `cedivets-logo.png` y el favicon provisional `public/favicon.svg` sin cambiar la identidad;
+3. verificar contraste, legibilidad y tamaños mínimos en los contextos definitivos.
 
-No se encontró una fuente pública inequívoca del logo actual durante la preparación inicial.
+El recorte actual proviene únicamente del PDF aportado para esta integración local.
