@@ -1,0 +1,20 @@
+---
+import CtaBand from '../../components/CtaBand.astro';
+import PageHero from '../../components/PageHero.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Patología aviar" description="Estructura demostrativa para los servicios y el apoyo diagnóstico en patología aviar de CEDIVETS.">
+	<PageHero eyebrow="Área especializada" title="Patología aviar" intro="Una sección preparada para comunicar el alcance diagnóstico, los tipos de estudio y los protocolos de muestra cuando la información haya sido validada." marker="03" />
+	<section class="section">
+		<div class="shell content-grid">
+			<aside><p class="eyebrow">Alcance</p><h2>Información técnica sin suposiciones.</h2><p class="lead">La oferta definitiva se publicará únicamente con datos confirmados por el laboratorio.</p></aside>
+			<div class="content-stack">
+				<article class="info-card"><span class="placeholder">Información por confirmar</span><h2>Servicios del área</h2><p>Pruebas, especies, finalidad diagnóstica, tiempos y tarifas pendientes de catálogo oficial.</p></article>
+				<article class="info-card"><span class="placeholder">Información por confirmar</span><h2>Recepción de casos</h2><p>Requisitos de historia clínica, identificación, conservación y transporte pendientes de protocolo aprobado.</p></article>
+				<article class="info-card"><h2>Coordinación con laboratorios autorizados</h2><p>Esta estructura podrá informar servicios en desarrollo o coordinados con laboratorios autorizados. No implica ni afirma autorización de CEDIVETS por parte de Agrocalidad.</p></article>
+			</div>
+		</div>
+	</section>
+	<CtaBand />
+</BaseLayout>

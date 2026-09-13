@@ -1,0 +1,20 @@
+---
+import CtaBand from '../../components/CtaBand.astro';
+import PageHero from '../../components/PageHero.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Equipo" description="Estructura demostrativa para presentar al equipo de CEDIVETS sin datos profesionales inventados.">
+	<PageHero eyebrow="Personas" title="Conocimiento veterinario con rostro y trayectoria verificable." intro="Los perfiles se incorporarán cuando CEDIVETS confirme nombres, funciones, credenciales y fotografías autorizadas." marker="06" />
+	<section class="section">
+		<div class="shell">
+			<div class="section-heading"><div><p class="eyebrow">Directorio</p><h2>Perfiles preparados para información oficial.</h2></div><p>No se han usado nombres, cargos, acreditaciones ni imágenes personales durante esta fase demo.</p></div>
+			<div class="team-grid">
+				<article class="team-card"><span class="placeholder">Información por confirmar</span><h3>Dirección científica</h3><p>Nombre, formación, áreas de interés y perfil profesional pendientes.</p></article>
+				<article class="team-card"><span class="placeholder">Información por confirmar</span><h3>Área diagnóstica</h3><p>Integrantes, responsabilidades y experiencia pendientes.</p></article>
+				<article class="team-card"><span class="placeholder">Información por confirmar</span><h3>Apoyo científico</h3><p>Integrantes, líneas de trabajo y vías de colaboración pendientes.</p></article>
+			</div>
+		</div>
+	</section>
+	<CtaBand />
+</BaseLayout>

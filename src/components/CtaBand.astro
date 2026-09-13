@@ -1,0 +1,28 @@
+---
+import { withBase } from '../lib/urls';
+
+interface Props {
+	title?: string;
+	text?: string;
+	label?: string;
+	href?: string;
+}
+
+const {
+	title = '¿Necesita coordinar una muestra?',
+	text = 'Revise el proceso preliminar y confirme los requisitos específicos antes de realizar un envío.',
+	label = 'Cómo enviar una muestra',
+	href = '/envio-de-muestras/',
+} = Astro.props;
+---
+
+<section class="cta-wrap">
+	<div class="shell cta-band">
+		<div>
+			<p class="eyebrow eyebrow-light">Siguiente paso</p>
+			<h2>{title}</h2>
+			<p>{text}</p>
+		</div>
+		<a class="button button-light" href={withBase(href)}>{label}<span aria-hidden="true">→</span></a>
+	</div>
+</section>

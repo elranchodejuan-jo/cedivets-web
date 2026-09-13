@@ -1,0 +1,103 @@
+---
+import { serviceAreas, services, speciesOptions } from '../data/services';
+import { withBase } from '../lib/urls';
+---
+
+<section class="catalog" aria-labelledby="catalog-title">
+	<div class="catalog-heading">
+		<div>
+			<p class="eyebrow">Catálogo estructurado</p>
+			<h2 id="catalog-title">Encuentre un estudio</h2>
+		</div>
+		<p class="catalog-status" data-catalog-status aria-live="polite">{services.length} áreas preparadas</p>
+	</div>
+
+	<div class="catalog-filters" aria-label="Filtros del catálogo">
+		<label class="search-field">
+			<span>Buscar</span>
+			<input data-filter-search type="search" placeholder="Ej. histopatología" autocomplete="off" />
+		</label>
+		<label>
+			<span>Área</span>
+			<select data-filter-area>
+				<option value="">Todas las áreas</option>
+				{serviceAreas.map((area) => <option value={area.toLocaleLowerCase('es')}>{area}</option>)}
+			</select>
+		</label>
+		<label>
+			<span>Especie</span>
+			<select data-filter-species>
+				<option value="">Todas las especies</option>
+				{speciesOptions.map((species) => <option value={species.toLocaleLowerCase('es')}>{species}</option>)}
+			</select>
+		</label>
+		<button class="filter-reset" type="button" data-filter-reset>Limpiar filtros</button>
+	</div>
+
+	<div class="catalog-grid" data-catalog-grid>
+		{services.map((service, index) => (
+			<article
+				class={`service-card accent-${service.accent}`}
+				data-service-card
+				data-search={`${service.name} ${service.area} ${service.species}`.toLocaleLowerCase('es')}
+				data-area={service.area.toLocaleLowerCase('es')}
+				data-species={service.species.toLocaleLowerCase('es')}
+			>
+				<div class="service-card-top">
+					<span>{String(index + 1).padStart(2, '0')}</span>
+					<p>{service.area}</p>
+				</div>
+				<h3>{service.name}</h3>
+				<p>{service.summary}</p>
+				<dl>
+					<div><dt>Muestra</dt><dd>{service.sampleType}</dd></div>
+					<div><dt>Entrega</dt><dd>{service.deliveryTime}</dd></div>
+					<div><dt>Precio</dt><dd>{service.price}</dd></div>
+				</dl>
+				<a class="text-link" href={withBase(`/servicios/${service.slug}/`)}>Ver ficha <span aria-hidden="true">→</span></a>
+			</article>
+		))}
+	</div>
+	<p class="catalog-empty" data-catalog-empty hidden>No hay coincidencias con los filtros actuales.</p>
+</section>
+
+<script>
+	const root = document.querySelector('.catalog');
+	if (root) {
+		const search = root.querySelector<HTMLInputElement>('[data-filter-search]');
+		const area = root.querySelector<HTMLSelectElement>('[data-filter-area]');
+		const species = root.querySelector<HTMLSelectElement>('[data-filter-species]');
+		const cards = [...root.querySelectorAll<HTMLElement>('[data-service-card]')];
+		const status = root.querySelector<HTMLElement>('[data-catalog-status]');
+		const empty = root.querySelector<HTMLElement>('[data-catalog-empty]');
+		const reset = root.querySelector<HTMLButtonElement>('[data-filter-reset]');
+
+		const normalize = (value: string) => value.trim().toLocaleLowerCase('es');
+		const filter = () => {
+			const term = normalize(search?.value ?? '');
+			const selectedArea = area?.value ?? '';
+			const selectedSpecies = species?.value ?? '';
+			let visible = 0;
+			cards.forEach((card) => {
+				const matches = (!term || card.dataset.search?.includes(term)) &&
+					(!selectedArea || card.dataset.area === selectedArea) &&
+					(!selectedSpecies || card.dataset.species === selectedSpecies);
+				card.hidden = !matches;
+				if (matches) visible += 1;
+			});
+			if (status) status.textContent = `${visible} ${visible === 1 ? 'resultado' : 'resultados'}`;
+			if (empty) empty.hidden = visible !== 0;
+		};
+
+		search?.addEventListener('input', filter);
+		area?.addEventListener('change', filter);
+		species?.addEventListener('change', filter);
+		reset?.addEventListener('click', () => {
+			if (search) search.value = '';
+			if (area) area.value = '';
+			if (species) species.value = '';
+			filter();
+			search?.focus();
+		});
+	}
+</script>

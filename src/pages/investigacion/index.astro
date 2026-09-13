@@ -1,0 +1,21 @@
+---
+import CtaBand from '../../components/CtaBand.astro';
+import PageHero from '../../components/PageHero.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Investigación" description="Departamento de Apoyo Científico e Investigación de CEDIVETS, estructura demostrativa pendiente de información oficial.">
+	<PageHero eyebrow="Apoyo científico" title="Investigación que conecta laboratorio, clínica y territorio." intro="Base editorial para presentar proyectos, publicaciones, colaboraciones y servicios académicos con referencias verificables." marker="05" />
+	<section class="section">
+		<div class="shell content-grid">
+			<aside><p class="eyebrow">Departamento</p><h2>Apoyo Científico / Investigación</h2><p class="lead">Una sección modular para documentar conocimiento sin atribuir proyectos o alianzas no confirmados.</p></aside>
+			<div class="content-stack">
+				<article class="info-card"><span class="placeholder">Información por confirmar</span><h2>Líneas de investigación</h2><p>Temas prioritarios, objetivos, responsables y periodos pendientes de información institucional.</p></article>
+				<article class="info-card"><span class="placeholder">Información por confirmar</span><h2>Publicaciones</h2><p>Estructura preparada para autores, revista, año, DOI y enlace a la fuente.</p></article>
+				<article class="info-card"><span class="placeholder">Información por confirmar</span><h2>Colaboraciones</h2><p>Instituciones, grupos, convenios y alcance pendientes de documentación verificable.</p></article>
+				<article class="info-card"><span class="placeholder">Información por confirmar</span><h2>Apoyo a proyectos</h2><p>Modalidades de asesoría, requisitos y canales de solicitud pendientes de definición.</p></article>
+			</div>
+		</div>
+	</section>
+	<CtaBand title="¿Desea proponer una colaboración?" text="La versión final incluirá el canal oficial y los criterios de recepción de propuestas." label="Ver contacto" href="/contacto/" />
+</BaseLayout>

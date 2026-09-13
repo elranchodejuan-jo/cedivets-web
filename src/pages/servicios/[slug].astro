@@ -1,0 +1,34 @@
+---
+import CtaBand from '../../components/CtaBand.astro';
+import PageHero from '../../components/PageHero.astro';
+import { services, type Service } from '../../data/services';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+	return services.map((service) => ({ params: { slug: service.slug }, props: { service } }));
+}
+
+interface Props { service: Service }
+const { service } = Astro.props;
+---
+
+<BaseLayout title={service.area} description={`${service.summary} Ficha demostrativa; información técnica por confirmar.`}>
+	<PageHero eyebrow="Servicio diagnóstico" title={service.area} intro={service.summary} marker="02" />
+	<section class="section">
+		<div class="shell service-detail-grid">
+			<div class="content-stack">
+				<div class="notice"><strong>Ficha demostrativa.</strong> Confirme disponibilidad y requisitos directamente con CEDIVETS antes de preparar o enviar una muestra.</div>
+				<article class="info-card"><h2>{service.name}</h2><p>{service.specifications}</p></article>
+				<article class="info-card"><h2>Qué incluirá esta ficha</h2><p>Descripción del estudio, indicaciones de preparación, conservación, rotulado, criterios de aceptación o rechazo, alcance del informe y consideraciones de transporte.</p><span class="placeholder">Información por confirmar</span></article>
+			</div>
+			<dl class="service-meta">
+				<div><dt>Área</dt><dd>{service.area}</dd></div>
+				<div><dt>Especie</dt><dd>{service.species}</dd></div>
+				<div><dt>Tipo de muestra</dt><dd>{service.sampleType}</dd></div>
+				<div><dt>Tiempo de entrega</dt><dd>{service.deliveryTime}</dd></div>
+				<div><dt>Precio</dt><dd>{service.price}</dd></div>
+			</dl>
+		</div>
+	</section>
+	<CtaBand />
+</BaseLayout>

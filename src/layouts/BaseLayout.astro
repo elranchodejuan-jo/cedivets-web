@@ -1,0 +1,52 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { defaultDescription, fullSiteName } from '../data/site';
+import { withBase } from '../lib/urls';
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { title, description = defaultDescription } = Astro.props;
+const pageTitle = title ? `${title} | CEDIVETS` : fullSiteName;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="robots" content="noindex, nofollow, noarchive" />
+		<meta name="theme-color" content="#662B80" />
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonical} />
+		<link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="es_EC" />
+		<meta property="og:site_name" content="CEDIVETS" />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content={pageTitle} />
+		<meta name="twitter:description" content={description} />
+		<title>{pageTitle}</title>
+	</head>
+	<body>
+		<a class="skip-link" href="#contenido">Saltar al contenido</a>
+		<div class="demo-bar" role="note">
+			<span>Versión demostrativa</span>
+			<p>Contenido institucional sujeto a validación.</p>
+		</div>
+		<Header pathname={Astro.url.pathname} />
+		<main id="contenido">
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>

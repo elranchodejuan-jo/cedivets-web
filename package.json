@@ -8,11 +8,19 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "build:github": "cross-env SITE_URL=https://elranchodejuan-jo.github.io BASE_PATH=/cedivets-web astro build",
+    "check": "astro check",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "astro": "^7.3.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "@types/node": "^22.20.2",
+    "cross-env": "^10.1.0",
+    "typescript": "^5.9.3"
   },
   "allowScripts": {
     "esbuild": true

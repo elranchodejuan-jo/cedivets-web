@@ -1,0 +1,29 @@
+---
+import { navigation } from '../data/site';
+import { withBase } from '../lib/urls';
+import Brand from './Brand.astro';
+---
+
+<footer class="site-footer">
+	<div class="shell footer-grid">
+		<div>
+			<Brand />
+			<p class="footer-note">Base digital preparada para comunicar servicios veterinarios con rigor y claridad.</p>
+		</div>
+		<div>
+			<h2>Explorar</h2>
+			<nav aria-label="Navegación del pie">
+				{navigation.slice(0, 4).map((item) => <a href={withBase(item.href)}>{item.label}</a>)}
+			</nav>
+		</div>
+		<div>
+			<h2>Información</h2>
+			<p>Provincia de El Oro, Ecuador</p>
+			<p>Dirección, horario y canales: <strong>Información por confirmar</strong></p>
+		</div>
+	</div>
+	<div class="shell footer-bottom">
+		<p>© {new Date().getFullYear()} CEDIVETS. Sitio demostrativo.</p>
+		<p>Sin seguimiento, cookies ni recolección de datos.</p>
+	</div>
+</footer>

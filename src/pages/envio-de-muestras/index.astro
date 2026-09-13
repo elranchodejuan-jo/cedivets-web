@@ -1,0 +1,37 @@
+---
+import CtaBand from '../../components/CtaBand.astro';
+import PageHero from '../../components/PageHero.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Envío de muestras" description="Guía preliminar para coordinar el envío de muestras a CEDIVETS; los protocolos específicos están por confirmar.">
+	<PageHero eyebrow="Guía preliminar" title="Cómo enviar una muestra" intro="Un recorrido general para preparar la coordinación. Los requisitos dependen del estudio y deben confirmarse con CEDIVETS antes del envío." marker="04" />
+	<section class="section">
+		<div class="shell split-grid">
+			<div class="split-copy">
+				<p class="eyebrow">Antes de empezar</p>
+				<h2>Confirme siempre el protocolo específico.</h2>
+				<div class="notice"><strong>Importante:</strong> esta demo no sustituye instrucciones técnicas del laboratorio ni recomendaciones clínicas.</div>
+			</div>
+			<ol class="step-list">
+				<li><div><h3>Seleccione el estudio</h3><p>Consulte la ficha y confirme que el servicio está disponible.</p></div></li>
+				<li><div><h3>Solicite el protocolo</h3><p>Tipo de recipiente, fijador, volumen, temperatura y estabilidad: información por confirmar.</p></div></li>
+				<li><div><h3>Identifique el caso</h3><p>Prepare los datos clínicos y la identificación definidos por el laboratorio.</p></div></li>
+				<li><div><h3>Proteja la muestra</h3><p>Embale y conserve según el protocolo confirmado para el estudio.</p></div></li>
+				<li><div><h3>Coordine la recepción</h3><p>Confirme dirección, horario, transporte y persona de contacto antes del despacho.</p></div></li>
+				<li><div><h3>Conserve la referencia</h3><p>Guarde el código acordado y los comprobantes necesarios para seguimiento.</p></div></li>
+			</ol>
+		</div>
+	</section>
+	<section class="section section-soft">
+		<div class="shell">
+			<div class="section-heading"><div><p class="eyebrow">Documentación</p><h2>Material pendiente para la versión oficial.</h2></div><p>La sección está lista para alojar formularios descargables y protocolos aprobados sin incorporar archivos ficticios.</p></div>
+			<div class="feature-grid">
+				<article class="feature-card"><h3>Formulario de solicitud</h3><p>Plantilla y campos: información por confirmar.</p></article>
+				<article class="feature-card"><h3>Protocolos por área</h3><p>Documentos técnicos: información por confirmar.</p></article>
+				<article class="feature-card"><h3>Criterios de recepción</h3><p>Condiciones de aceptación y rechazo: información por confirmar.</p></article>
+			</div>
+		</div>
+	</section>
+	<CtaBand title="¿Listo para coordinar?" text="Los canales de atención se publicarán cuando hayan sido confirmados por CEDIVETS." label="Ver contacto" href="/contacto/" />
+</BaseLayout>

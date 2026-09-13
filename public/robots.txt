@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://elranchodejuan-jo.github.io/cedivets-web/sitemap.xml

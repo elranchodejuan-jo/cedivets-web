@@ -1,0 +1,12 @@
+---
+import CtaBand from '../../components/CtaBand.astro';
+import PageHero from '../../components/PageHero.astro';
+import ServiceCatalog from '../../components/ServiceCatalog.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Servicios" description="Catálogo demostrativo y filtrable de servicios diagnósticos veterinarios CEDIVETS.">
+	<PageHero eyebrow="Catálogo de servicios" title="Información diagnóstica clara, ordenada y ampliable." intro="Busque por área o especie. Cada ficha está lista para recibir especificaciones técnicas, muestras, tiempos y precios validados." marker="02" />
+	<div class="shell"><ServiceCatalog /></div>
+	<CtaBand />
+</BaseLayout>

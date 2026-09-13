@@ -1,0 +1,21 @@
+---
+import CtaBand from '../../components/CtaBand.astro';
+import PageHero from '../../components/PageHero.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Nosotros" description="Base institucional de CEDIVETS: propósito, misión, visión e infraestructura por validar.">
+	<PageHero eyebrow="CEDIVETS" title="Rigor diagnóstico al servicio de la medicina veterinaria." intro="Esta página organiza la historia, el propósito y las capacidades institucionales que deberán ser validados por CEDIVETS antes de su publicación definitiva." marker="01" />
+	<section class="section">
+		<div class="shell content-grid">
+			<aside><p class="eyebrow">Identidad</p><h2>Una presentación institucional verificable.</h2><p class="lead">La estructura evita completar vacíos con afirmaciones no confirmadas.</p></aside>
+			<div class="content-stack">
+				<article class="info-card"><span class="placeholder">Información por confirmar</span><h2>Historia</h2><p>Origen, hitos, fecha de fundación y evolución del laboratorio pendientes de texto institucional.</p></article>
+				<article class="info-card"><span class="placeholder">Información por confirmar</span><h2>Misión</h2><p>Espacio preparado para la misión oficial aprobada por la dirección de CEDIVETS.</p></article>
+				<article class="info-card"><span class="placeholder">Información por confirmar</span><h2>Visión</h2><p>Espacio preparado para la visión institucional y su horizonte temporal.</p></article>
+				<article class="info-card"><span class="placeholder">Información por confirmar</span><h2>Infraestructura</h2><p>La versión final podrá documentar áreas, equipos y procesos con fotografías y descripciones autorizadas. En esta fase no se atribuye ninguna instalación concreta.</p></article>
+			</div>
+		</div>
+	</section>
+	<CtaBand />
+</BaseLayout>
