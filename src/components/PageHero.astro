@@ -7,6 +7,7 @@ interface Props {
 }
 
 const { eyebrow, title, intro, marker = '01' } = Astro.props;
+const hasIntroIcon = Astro.slots.has('intro-icon');
 ---
 
 <section class="page-hero">
@@ -14,7 +15,7 @@ const { eyebrow, title, intro, marker = '01' } = Astro.props;
 		<div>
 			<p class="eyebrow">{eyebrow}</p>
 			<h1>{title}</h1>
-			<p class="lead">{intro}</p>
+			<p class:list={['lead', { 'page-hero-area': hasIntroIcon }]}><slot name="intro-icon" /><span>{intro}</span></p>
 		</div>
 		<div class="page-marker" aria-hidden="true">
 			<span>{marker}</span>
