@@ -1,5 +1,6 @@
 ---
 import { ArrowRight, LayoutGrid, PawPrint, RotateCcw, Search } from '@lucide/astro';
+import AreaIcon from './AreaIcon.astro';
 import { areas, services, speciesOptions } from '../data/services';
 import { withBase } from '../lib/urls';
 
@@ -19,7 +20,7 @@ const fold = (value: string) =>
 	<div class="catalog-filters" aria-label="Filtros del catálogo">
 		<label class="search-field">
 			<span>Buscar</span>
-			<div class="filter-control"><Search size={20} stroke-width={1.9} aria-hidden="true" /><input data-filter-search type="search" placeholder="Ej. histopatología" autocomplete="off" /></div>
+			<div class="filter-control icon-motion-focus-trigger"><Search class="icon-motion-scale" size={20} stroke-width={1.9} aria-hidden="true" /><input data-filter-search type="search" placeholder="Ej. histopatología" autocomplete="off" /></div>
 		</label>
 		<label>
 			<span>Área</span>
@@ -35,13 +36,13 @@ const fold = (value: string) =>
 					{speciesOptions.map((species) => <option value={fold(species)}>{species}</option>)}
 				</select></div>
 		</label>
-		<button class="filter-reset" type="button" data-filter-reset><RotateCcw size={18} stroke-width={1.9} aria-hidden="true" />Limpiar filtros</button>
+		<button class="filter-reset icon-motion-trigger" type="button" data-filter-reset><RotateCcw class="icon-motion-rotate" size={18} stroke-width={1.9} aria-hidden="true" />Limpiar filtros</button>
 	</div>
 
 	<div class="catalog-grid" data-catalog-grid>
 		{services.map((service, index) => (
 			<article
-				class={`service-card accent-${service.accent}`}
+				class={`service-card accent-${service.accent} icon-motion-trigger-within`}
 				data-service-card
 				data-search={fold([service.name, service.area, service.species, service.specifications, service.sampleType ?? ''].join(' '))}
 				data-area={service.areaId}
@@ -49,7 +50,7 @@ const fold = (value: string) =>
 			>
 				<div class="service-card-top">
 					<span>{String(index + 1).padStart(2, '0')}</span>
-					<p>{service.area}</p>
+					<div class="area-label"><AreaIcon areaId={service.areaId} size={17} strokeWidth={1.9} class="icon-motion-lift-scale" /><p>{service.area}</p></div>
 				</div>
 				<h3>{service.name}</h3>
 				<p>{service.specifications}</p>

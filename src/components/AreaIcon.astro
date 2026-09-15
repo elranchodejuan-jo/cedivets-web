@@ -1,0 +1,26 @@
+---
+import { Bird, Bug, Droplets, Microscope, ScanSearch, TestTubeDiagonal } from '@lucide/astro';
+import type { AreaId } from '../data/services';
+
+interface Props {
+	areaId: AreaId;
+	size?: number;
+	strokeWidth?: number;
+	class?: string;
+}
+
+const iconsByArea = {
+	hematologia: Droplets,
+	parasitologia: Bug,
+	citologia: ScanSearch,
+	histopatologia: Microscope,
+	microbiologia: TestTubeDiagonal,
+	aviar: Bird,
+} satisfies Record<AreaId, typeof Droplets>;
+
+const { areaId, size = 24, strokeWidth = 1.8, class: className } = Astro.props;
+const Icon = iconsByArea[areaId];
+const iconClass = ['area-icon', className].filter(Boolean).join(' ');
+---
+
+<Icon class={iconClass} size={size} stroke-width={strokeWidth} aria-hidden="true" />

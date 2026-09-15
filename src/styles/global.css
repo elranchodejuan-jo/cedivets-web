@@ -430,7 +430,69 @@ h3 {
 
 .action-icon {
 	flex: 0 0 auto;
-	transition: transform 160ms ease;
+	transition: transform 160ms ease-out;
+}
+
+.area-icon {
+	flex: 0 0 auto;
+}
+
+:is(
+	.icon-motion-lift,
+	.icon-motion-lift-scale,
+	.icon-motion-scale,
+	.icon-motion-tilt-left,
+	.icon-motion-tilt-right,
+	.icon-motion-rotate
+) {
+	transform-origin: center;
+	transition: transform 160ms ease-out;
+}
+
+:is(.icon-motion-trigger:focus-visible, .icon-motion-trigger-within:focus-within) .icon-motion-lift {
+	transform: translateY(-2px);
+}
+
+:is(.icon-motion-trigger:focus-visible, .icon-motion-trigger-within:focus-within) .icon-motion-lift-scale {
+	transform: translateY(-2px) scale(1.03);
+}
+
+:is(.icon-motion-trigger:focus-visible, .icon-motion-trigger-within:focus-within) .icon-motion-tilt-left {
+	transform: translateY(-1px) rotate(-4deg);
+}
+
+:is(.icon-motion-trigger:focus-visible, .icon-motion-trigger-within:focus-within) .icon-motion-tilt-right {
+	transform: rotate(4deg);
+}
+
+:is(.icon-motion-trigger:focus-visible, .icon-motion-trigger-within:focus-within) .icon-motion-rotate {
+	transform: rotate(-24deg);
+}
+
+.icon-motion-focus-trigger:focus-within > .icon-motion-scale {
+	transform: translateY(-50%) scale(1.05);
+}
+
+@media (hover: hover) {
+	:is(.icon-motion-trigger, .icon-motion-trigger-within):hover .icon-motion-lift {
+		transform: translateY(-2px);
+	}
+
+	:is(.icon-motion-trigger, .icon-motion-trigger-within):hover .icon-motion-lift-scale {
+		transform: translateY(-2px) scale(1.03);
+	}
+
+	:is(.icon-motion-trigger, .icon-motion-trigger-within):hover .icon-motion-tilt-left {
+		transform: translateY(-1px) rotate(-4deg);
+	}
+
+	:is(.icon-motion-trigger, .icon-motion-trigger-within):hover .icon-motion-tilt-right {
+		transform: rotate(4deg);
+	}
+
+	:is(.icon-motion-trigger, .icon-motion-trigger-within):hover .icon-motion-rotate {
+		transform: rotate(-24deg);
+	}
 }
 
 :is(.button, .text-link):is(:hover, :focus-visible) .action-icon {
@@ -705,6 +767,30 @@ h3 {
 	text-transform: uppercase;
 }
 
+.area-card-identity {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	margin-bottom: 0.9rem;
+}
+
+.area-card-identity .card-kicker {
+	margin: 0;
+}
+
+.area-icon-shell {
+	display: grid;
+	place-items: center;
+	flex: 0 0 auto;
+	width: 2.65rem;
+	height: 2.65rem;
+	border-radius: var(--radius-sm);
+	color: var(--accent);
+	background: var(--surface-tint);
+}
+
 .area-card h3 {
 	position: relative;
 	z-index: 1;
@@ -868,6 +954,16 @@ h3 {
 	max-width: 16ch;
 	margin-bottom: 1.3rem;
 	font-size: clamp(2.8rem, 6vw, 5rem);
+}
+
+.page-hero-area {
+	display: flex;
+	align-items: center;
+	gap: 0.7rem;
+}
+
+.page-hero-area-icon {
+	color: var(--accent);
 }
 
 .page-marker {
@@ -1092,7 +1188,7 @@ h3 {
 
 .service-card-top {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: space-between;
 	margin-bottom: 2.25rem;
 }
@@ -1110,6 +1206,24 @@ h3 {
 	font-weight: 760;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
+}
+
+.area-label {
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-end;
+	gap: 0.45rem;
+	max-width: calc(100% - 2.25rem);
+	color: var(--accent);
+}
+
+.service-card-top .area-label p {
+	line-height: 1.35;
+	text-align: left;
+}
+
+.area-label .area-icon {
+	margin-top: 0.05rem;
 }
 
 .service-card h3 {
@@ -1533,7 +1647,20 @@ h3 {
 		transition-duration: 0.01ms !important;
 	}
 
-	:is(.button, .text-link):is(:hover, :focus-visible) .action-icon {
-		transform: none;
+	:is(
+		.action-icon,
+		.icon-motion-lift,
+		.icon-motion-lift-scale,
+		.icon-motion-scale,
+		.icon-motion-tilt-left,
+		.icon-motion-tilt-right,
+		.icon-motion-rotate
+	) {
+		transition: none !important;
+		transform: none !important;
+	}
+
+	.icon-motion-focus-trigger > .icon-motion-scale {
+		transform: translateY(-50%) !important;
 	}
 }
