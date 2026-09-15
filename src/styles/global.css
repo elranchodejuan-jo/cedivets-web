@@ -428,6 +428,15 @@ h3 {
 	text-decoration: underline;
 }
 
+.action-icon {
+	flex: 0 0 auto;
+	transition: transform 160ms ease;
+}
+
+:is(.button, .text-link):is(:hover, :focus-visible) .action-icon {
+	transform: translateX(0.15rem);
+}
+
 .hero {
 	position: relative;
 	overflow: hidden;
@@ -777,6 +786,32 @@ h3 {
 	font-size: 0.92rem;
 }
 
+.process-heading {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	margin-bottom: 0.45rem;
+}
+
+.process-heading h3 {
+	margin: 0;
+}
+
+.process-icon,
+.icon-surface {
+	display: grid;
+	place-items: center;
+	flex: 0 0 auto;
+	border-radius: var(--radius-sm);
+	color: var(--brand-purple);
+	background: var(--surface-tint);
+}
+
+.process-icon {
+	width: 2.65rem;
+	height: 2.65rem;
+}
+
 .fact-panel {
 	padding: clamp(2rem, 5vw, 4rem);
 	border-radius: var(--radius-lg);
@@ -975,6 +1010,24 @@ h3 {
 	text-transform: uppercase;
 }
 
+.filter-control {
+	position: relative;
+	color: var(--brand-blue);
+}
+
+.filter-control > svg {
+	position: absolute;
+	top: 50%;
+	left: 0.8rem;
+	z-index: 1;
+	transform: translateY(-50%);
+	pointer-events: none;
+}
+
+.filter-control:focus-within > svg {
+	color: var(--brand-purple);
+}
+
 .catalog-filters input,
 .catalog-filters select,
 .filter-reset {
@@ -987,7 +1040,20 @@ h3 {
 	background: white;
 }
 
+.catalog-filters .filter-control input,
+.catalog-filters .filter-control select {
+	padding-left: 2.65rem;
+}
+
+.catalog-filters .filter-control select {
+	padding-right: 2rem;
+}
+
 .filter-reset {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
 	cursor: pointer;
 	color: var(--brand-purple);
 	font-weight: 760;
@@ -1167,6 +1233,22 @@ h3 {
 	color: var(--brand-teal-dark);
 }
 
+.notice-with-icon {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.75rem;
+}
+
+.notice-with-icon > svg {
+	flex: 0 0 auto;
+	margin-top: 0.15rem;
+	color: var(--brand-teal-dark);
+}
+
+.notice-with-icon p {
+	margin: 0;
+}
+
 .contact-grid {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
@@ -1180,9 +1262,15 @@ h3 {
 	background: white;
 }
 
-.contact-card span {
-	display: block;
-	margin-bottom: 2rem;
+.contact-card-top {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+.contact-card-top > span {
 	color: var(--brand-teal-dark);
 	font-size: 0.75rem;
 	font-weight: 820;
@@ -1190,8 +1278,25 @@ h3 {
 	text-transform: uppercase;
 }
 
+.icon-surface {
+	width: 2.75rem;
+	height: 2.75rem;
+}
+
 .contact-card h2 {
 	font-size: 1.35rem;
+}
+
+.contact-line {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.55rem;
+}
+
+.contact-line > svg {
+	flex: 0 0 auto;
+	margin-top: 0.3rem;
+	color: var(--brand-blue);
 }
 
 .site-footer {
@@ -1426,5 +1531,9 @@ h3 {
 	*::after {
 		scroll-behavior: auto !important;
 		transition-duration: 0.01ms !important;
+	}
+
+	:is(.button, .text-link):is(:hover, :focus-visible) .action-icon {
+		transform: none;
 	}
 }

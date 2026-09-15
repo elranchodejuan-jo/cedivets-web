@@ -1,4 +1,5 @@
 ---
+import { ArrowRight } from '@lucide/astro';
 import CtaBand from '../components/CtaBand.astro';
 import { areas, services } from '../data/services';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -13,7 +14,7 @@ import { withBase } from '../lib/urls';
 				<h1>Diagnóstico veterinario especializado para decisiones clínicas <span>más seguras.</span></h1>
 					<p class="lead">CEDIVETS ofrece diagnóstico veterinario integral, preciso y oportuno para apoyar la práctica clínica con respaldo científico en El Oro y el sur del Ecuador.</p>
 				<div class="hero-actions">
-					<a class="button button-primary" href={withBase('/servicios/')}>Explorar servicios <span aria-hidden="true">→</span></a>
+					<a class="button button-primary" href={withBase('/servicios/')}>Explorar servicios <ArrowRight class="action-icon" size={18} stroke-width={1.9} aria-hidden="true" /></a>
 					<a class="button button-secondary" href={withBase('/envio-de-muestras/')}>Preparar una muestra</a>
 				</div>
 				<div class="hero-note">
@@ -49,9 +50,9 @@ import { withBase } from '../lib/urls';
 				<p>El catálogo reúne estudios de hematología, parasitología, citología, histopatología y microbiología, incluida el área aviar.</p>
 			</div>
 			<div class="area-grid">
-				<article class="area-card" data-index="01"><p class="card-kicker">Estudios</p><h3>Servicios</h3><p>Revise las pruebas y sus requisitos individuales antes de enviar una muestra.</p><a class="text-link" href={withBase('/servicios/')}>Ver catálogo <span aria-hidden="true">→</span></a></article>
-				<article class="area-card" data-index="02"><p class="card-kicker">Especialidades</p><h3>Áreas</h3><p>Conozca cómo se organizan las seis áreas del catálogo 2026.</p><a class="text-link" href={withBase('/areas/')}>Ver áreas <span aria-hidden="true">→</span></a></article>
-				<article class="area-card" data-index="03"><p class="card-kicker">Preparación</p><h3>Envío de muestras</h3><p>Conservación, identificación y transporte según el tipo de muestra.</p><a class="text-link" href={withBase('/envio-de-muestras/')}>Ver requisitos <span aria-hidden="true">→</span></a></article>
+				<article class="area-card" data-index="01"><p class="card-kicker">Estudios</p><h3>Servicios</h3><p>Revise las pruebas y sus requisitos individuales antes de enviar una muestra.</p><a class="text-link" href={withBase('/servicios/')}>Ver catálogo <ArrowRight class="action-icon" size={17} stroke-width={1.9} aria-hidden="true" /></a></article>
+				<article class="area-card" data-index="02"><p class="card-kicker">Especialidades</p><h3>Áreas</h3><p>Conozca cómo se organizan las seis áreas del catálogo 2026.</p><a class="text-link" href={withBase('/areas/')}>Ver áreas <ArrowRight class="action-icon" size={17} stroke-width={1.9} aria-hidden="true" /></a></article>
+				<article class="area-card" data-index="03"><p class="card-kicker">Preparación</p><h3>Envío de muestras</h3><p>Conservación, identificación y transporte según el tipo de muestra.</p><a class="text-link" href={withBase('/envio-de-muestras/')}>Ver requisitos <ArrowRight class="action-icon" size={17} stroke-width={1.9} aria-hidden="true" /></a></article>
 			</div>
 		</div>
 	</section>
@@ -62,7 +63,7 @@ import { withBase } from '../lib/urls';
 				<p class="eyebrow">Envío de muestras</p>
 				<h2>La calidad del proceso empieza antes del laboratorio.</h2>
 					<p class="lead">El catálogo indica cómo conservar, rotular y embalar las muestras. Cada ficha añade las condiciones particulares del estudio.</p>
-					<a class="text-link" href={withBase('/envio-de-muestras/')}>Ver guía de muestras <span aria-hidden="true">→</span></a>
+					<a class="text-link" href={withBase('/envio-de-muestras/')}>Ver guía de muestras <ArrowRight class="action-icon" size={17} stroke-width={1.9} aria-hidden="true" /></a>
 			</div>
 			<ol class="step-list">
 					<li><div><h3>Elegir el estudio</h3><p>Revise la muestra y las condiciones específicas de su ficha.</p></div></li>
@@ -90,7 +91,7 @@ import { withBase } from '../lib/urls';
 	<section class="section section-tint">
 		<div class="shell split-grid">
 			<div class="split-copy"><p class="eyebrow">Catálogo de precios 2026</p><h2>Cada estudio tiene sus propias condiciones.</h2></div>
-			<div class="info-card"><p>Consulte especies, tipo de muestra, especificaciones, tiempo y precio por estudio. Algunos plazos o precios figuran como «Consultar» o no están indicados en el documento.</p><a class="text-link" href={withBase('/servicios/')}>Buscar estudios <span aria-hidden="true">→</span></a></div>
+			<div class="info-card"><p>Consulte especies, tipo de muestra, especificaciones, tiempo y precio por estudio. Algunos plazos o precios figuran como «Consultar» o no están indicados en el documento.</p><a class="text-link" href={withBase('/servicios/')}>Buscar estudios <ArrowRight class="action-icon" size={17} stroke-width={1.9} aria-hidden="true" /></a></div>
 		</div>
 	</section>
 
@@ -101,8 +102,8 @@ import { withBase } from '../lib/urls';
 					<h2>Apoyo a proyectos de investigación.</h2>
 			</div>
 			<div class="content-stack">
-				<article class="info-card"><h3>Departamento de Apoyo Científico</h3><p>Presenta tu proyecto y las pruebas requeridas. El equipo evaluará la solicitud para otorgar un descuento; el catálogo no fija un porcentaje.</p><a class="text-link" href={withBase('/investigacion/')}>Ver investigación <span aria-hidden="true">→</span></a></article>
-				<article class="info-card"><h3>Control sanitario oficial</h3><p>Los servicios orientados a Agrocalidad están en desarrollo o se coordinan con laboratorios autorizados. Consulte disponibilidad, costos y muestreo.</p><a class="text-link" href={withBase('/servicios/')}>Ver alcance <span aria-hidden="true">→</span></a></article>
+				<article class="info-card"><h3>Departamento de Apoyo Científico</h3><p>Presenta tu proyecto y las pruebas requeridas. El equipo evaluará la solicitud para otorgar un descuento; el catálogo no fija un porcentaje.</p><a class="text-link" href={withBase('/investigacion/')}>Ver investigación <ArrowRight class="action-icon" size={17} stroke-width={1.9} aria-hidden="true" /></a></article>
+				<article class="info-card"><h3>Control sanitario oficial</h3><p>Los servicios orientados a Agrocalidad están en desarrollo o se coordinan con laboratorios autorizados. Consulte disponibilidad, costos y muestreo.</p><a class="text-link" href={withBase('/servicios/')}>Ver alcance <ArrowRight class="action-icon" size={17} stroke-width={1.9} aria-hidden="true" /></a></article>
 			</div>
 		</div>
 	</section>

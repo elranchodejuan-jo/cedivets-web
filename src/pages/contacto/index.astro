@@ -1,4 +1,5 @@
 ---
+import { Clock3, Mail, MapPin, Phone } from '@lucide/astro';
 import PageHero from '../../components/PageHero.astro';
 import { contact } from '../../data/site';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -8,9 +9,24 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 	<PageHero eyebrow="Contacto" title="Coordine su estudio y el envío de muestras." intro="El catálogo indica dirección, teléfono, correo y redes. Consulte el horario de recepción antes de despachar muestras." marker="07" />
 	<section class="section">
 		<div class="shell contact-grid">
-			<article class="contact-card"><span>01 / Ubicación</span><h2>Huaquillas, El Oro</h2><p>{contact.address}</p></article>
-			<article class="contact-card"><span>02 / Canales</span><h2>Teléfono y correo</h2><p>Teléfono: <a href={'tel:' + contact.phone}>{contact.phone}</a></p><p>Correo: <a href={'mailto:' + contact.email}>{contact.email}</a></p><p>Facebook: {contact.facebook}<br />Instagram: {contact.instagram}</p></article>
-			<article class="contact-card"><span>03 / Atención</span><h2>Horario</h2><p>Días y franjas de recepción: <strong>Información por confirmar.</strong></p><p>El catálogo recomienda coordinar horarios de recepción y entrega para servicios de mensajería.</p></article>
+			<article class="contact-card">
+				<div class="contact-card-top"><span>01 / Ubicación</span><div class="icon-surface" aria-hidden="true"><MapPin size={24} stroke-width={1.8} /></div></div>
+				<h2>Huaquillas, El Oro</h2>
+				<p>{contact.address}</p>
+			</article>
+			<article class="contact-card">
+				<div class="contact-card-top"><span>02 / Canales</span><div class="icon-surface" aria-hidden="true"><Phone size={24} stroke-width={1.8} /></div></div>
+				<h2>Teléfono y correo</h2>
+				<p class="contact-line"><Phone size={17} stroke-width={1.9} aria-hidden="true" /><span>Teléfono: <a href={'tel:' + contact.phone}>{contact.phone}</a></span></p>
+				<p class="contact-line"><Mail size={17} stroke-width={1.9} aria-hidden="true" /><span>Correo: <a href={'mailto:' + contact.email}>{contact.email}</a></span></p>
+				<p>Facebook: {contact.facebook}<br />Instagram: {contact.instagram}</p>
+			</article>
+			<article class="contact-card">
+				<div class="contact-card-top"><span>03 / Atención</span><div class="icon-surface" aria-hidden="true"><Clock3 size={24} stroke-width={1.8} /></div></div>
+				<h2>Horario</h2>
+				<p>Días y franjas de recepción: <strong>Información por confirmar.</strong></p>
+				<p>El catálogo recomienda coordinar horarios de recepción y entrega para servicios de mensajería.</p>
+			</article>
 		</div>
 	</section>
 	<section class="section section-soft">

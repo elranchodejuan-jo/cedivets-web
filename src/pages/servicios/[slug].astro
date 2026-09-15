@@ -1,4 +1,5 @@
 ---
+import { ArrowRight } from '@lucide/astro';
 import CtaBand from '../../components/CtaBand.astro';
 import PageHero from '../../components/PageHero.astro';
 import { areas, services, type Service } from '../../data/services';
@@ -26,7 +27,7 @@ const related = area ? services.filter((item) => item.areaId === area.id) : [];
 					<div class="notice"><strong>Catálogo 2026.</strong> Confirme disponibilidad y coordinación con CEDIVETS antes del envío.</div>
 					<article class="info-card"><h2>Especificaciones y conservación</h2><p>{service.specifications}</p></article>
 					{service.condition && <article class="info-card"><h2>Condición particular</h2><p>{service.condition}</p></article>}
-					<article class="info-card"><h2>Preparación general</h2><p>Consulte también las recomendaciones de conservación, rotulado y embalaje del catálogo.</p><a class="text-link" href={withBase('/envio-de-muestras/')}>Ver envío de muestras <span aria-hidden="true">→</span></a></article>
+					<article class="info-card"><h2>Preparación general</h2><p>Consulte también las recomendaciones de conservación, rotulado y embalaje del catálogo.</p><a class="text-link" href={withBase('/envio-de-muestras/')}>Ver envío de muestras <ArrowRight class="action-icon" size={17} stroke-width={1.9} aria-hidden="true" /></a></article>
 					<p class="source-note">Fuente: Catálogo de precios CEDIVETS 2026, página {service.sourcePage}.</p>
 				</div>
 				<dl class="service-meta">
@@ -44,7 +45,7 @@ const related = area ? services.filter((item) => item.areaId === area.id) : [];
 			<div class="shell">
 				<p class="lead">Esta ruta conserva el acceso anterior al área. Cada estudio tiene ahora una ficha individual con las condiciones del catálogo.</p>
 				<div class="feature-grid">
-					{related.map((item) => <article class="feature-card"><h2>{item.name}</h2><p>{item.specifications}</p><a class="text-link" href={withBase('/servicios/' + item.slug + '/')}>Ver ficha <span aria-hidden="true">→</span></a></article>)}
+					{related.map((item) => <article class="feature-card"><h2>{item.name}</h2><p>{item.specifications}</p><a class="text-link" href={withBase('/servicios/' + item.slug + '/')}>Ver ficha <ArrowRight class="action-icon" size={17} stroke-width={1.9} aria-hidden="true" /></a></article>)}
 				</div>
 			</div>
 		</section>
